@@ -18,6 +18,14 @@ lazy val dataTables =
       )
     )
 
+lazy val application =
+  Project(id = "application", base = file("application"))
+  .dependsOn(dataTables)
+    .settings(
+      version := "0.1",
+      scalaVersion := "2.12.6"
+    )
+
 lazy val root =
   Project("workshop", file("."))
     .aggregate(dataTables, model)
